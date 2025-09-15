@@ -1,332 +1,214 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Banele Magubane - Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banele Magubane | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f5f7;
-      color: #111827;
-      scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+    body { background: #0f0f1a; color: #e0e7ff; scroll-behavior: smooth; }
 
-    a { transition: 0.3s; }
+    a { text-decoration:none; transition:0.3s; }
+    a:hover { opacity:0.85; }
 
     /* Header */
     header {
       background: linear-gradient(135deg, #6d28d9, #4c1d95);
-      color: white;
-      padding: 50px 20px 60px;
+      color: #fff;
       text-align: center;
+      padding: 120px 20px 100px;
       position: relative;
-      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: #f4f5f7;
-      border-radius: 50% 50% 0 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #e5e7eb;
-    }
+    header h1 { font-size: 3.8rem; margin-bottom: 15px; background: linear-gradient(90deg, #facc15, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    header p { font-size: 1.3rem; margin-bottom: 30px; color: #e0e7ff; max-width: 650px; margin-left:auto; margin-right:auto; }
+    header .cta { display:inline-block; padding:15px 35px; background:#facc15; color:#4c1d95; font-weight:700; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+    header .cta:hover { background:#eab308; }
 
-    nav {
-      margin-top: 25px;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #facc15;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.05em;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav { margin-top:30px; }
+    nav a { margin:0 18px; color:#facc15; font-weight:600; font-size:1.05rem; }
+    nav a:hover { text-decoration:underline; }
 
-    /* Main Layout */
-    main {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 25px;
-      padding: 40px 20px;
-      max-width: 1400px;
-      margin: auto;
-    }
+    /* Main Grid */
+    main { max-width:1400px; margin:auto; padding:50px 20px; display:grid; grid-template-columns:1fr 1fr; gap:50px; }
+    @media(max-width:992px){ main { grid-template-columns:1fr; gap:40px; } }
 
-    /* Section Cards */
+    /* Sections */
     .section-card {
-      background: #fff;
-      padding: 25px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(145deg, #1a1a2e, #1e1b4b);
+      border-radius: 20px;
+      padding:35px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
     }
-    .section-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-    }
-    h2 {
-      margin-top: 0;
-      color: #4c1d95;
-      font-size: 1.8em;
-      border-bottom: 2px solid #ede9fe;
-      padding-bottom: 6px;
-      margin-bottom: 15px;
-    }
+    .section-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.7); }
+
+    h2 { color:#a78bfa; margin-bottom:25px; font-size:2rem; border-bottom:3px solid #4c1d95; padding-bottom:10px; }
 
     /* About */
-    blockquote {
-      margin: 15px 0 0 0;
-      padding-left: 20px;
-      border-left: 4px solid #6d28d9;
-      color: #4b5563;
-      font-style: italic;
-    }
-
-    /* Skills */
-    #skills ul {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-    }
-    #skills li {
-      background: #ede9fe;
-      padding: 12px 15px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-align: center;
-      color: #4c1d95;
-    }
-
-    /* Resume Button */
-    #resume a {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #6d28d9;
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-    #resume a:hover {
-      background: #4c1d95;
-    }
+    #about p { margin-bottom:18px; line-height:1.7; }
+    blockquote { font-style:italic; border-left:5px solid #6d28d9; padding-left:20px; color:#9ca3af; margin-top:18px; }
 
     /* Projects */
-    #projects p {
-      background: #f9f5ff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      margin-bottom: 20px;
-    }
-    #projects strong {
-      font-size: 1.2em;
-      color: #6d28d9;
-    }
-    .project-link {
-      display: inline-block;
-      margin: 8px 8px 0 0;
-      padding: 8px 16px;
-      background: #6d28d9;
-      color: white !important;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9em;
-    }
-    .project-link:hover {
-      background: #4c1d95;
-    }
+    .project-card { background:#2d2d44; border-radius:16px; padding:25px; margin-bottom:20px; transition: transform 0.3s, box-shadow 0.3s; }
+    .project-card:hover { transform: translateY(-6px); box-shadow:0 12px 28px rgba(108,43,255,0.5); }
+    .project-card h3 { color:#c084fc; margin-bottom:12px; }
+    .project-card p { margin-bottom:12px; }
+    .btn { display:inline-block; padding:10px 22px; margin-right:10px; background:#6d28d9; color:#fff; border-radius:10px; font-weight:600; font-size:0.95rem; box-shadow:0 6px 20px rgba(0,0,0,0.4); }
+    .btn:hover { background:#4c1d95; }
 
     /* Certificates */
-    .certificates ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      list-style: none;
-      padding: 0;
+    .certificates { text-align:center; }
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:25px; margin-top:25px; }
+    .cert-card {
+      background:linear-gradient(145deg, #1e1b4b, #2d2d44);
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
     }
-    .certificates a {
-      display: block;
-      padding: 15px;
-      background: #f3f4f6;
-      border-radius: 12px;
-      font-weight: bold;
-      color: #1e293b;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .certificates a:hover {
-      background: #ede9fe;
-      color: #4c1d95;
-      transform: translateY(-3px);
-    }
+    .cert-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 15px 40px rgba(108,43,255,0.6); border:2px solid #c084fc; }
+    .cert-card h3 { color:#c084fc; margin-bottom:15px; font-size:1.2rem; border-bottom:1px solid #6d28d9; padding-bottom:8px; }
+    .cert-card ul { list-style:disc; padding-left:20px; text-align:left; }
+    .cert-card li { margin-bottom:10px; }
+    .cert-card a { color:#e0e7ff; font-weight:500; }
+    .cert-card a:hover { color:#facc15; text-decoration:underline; }
 
     /* Contact */
-    #contact a {
-      color: #6d28d9;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    #contact a:hover {
-      text-decoration: underline;
-    }
+    #contact p, #contact a { margin-bottom:12px; font-weight:500; }
+    #contact a { color:#c084fc; }
+    #contact a:hover { text-decoration:underline; }
 
     /* Footer */
-    footer {
-      background: #1e1b4b;
-      color: white;
-      text-align: center;
-      padding: 25px 20px;
-      margin-top: 40px;
-      font-size: 0.95em;
-    }
+    footer { background:#111827; color:#fff; text-align:center; padding:35px 20px; margin-top:50px; font-size:0.95rem; }
 
-    /* Responsive */
-    @media (max-width: 992px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-    }
+    /* Animations */
+    .fade-in { opacity:0; transform:translateY(20px); animation: fadeIn 1s forwards; }
+    .fade-in:nth-child(1){ animation-delay:0.2s; }
+    .fade-in:nth-child(2){ animation-delay:0.4s; }
+    .fade-in:nth-child(3){ animation-delay:0.6s; }
+    .fade-in:nth-child(4){ animation-delay:0.8s; }
+    @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <h1>Banele Magubane</h1>
-    <p>System Support & AI/ML Enthusiast | Bridging Users and Technology</p>
+    <p>Tech Professional | Systems Support | Aspiring AI & Machine Learning Practitioner</p>
+    <a href="#contact" class="cta">Hire Me</a>
     <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
+      <a href="#about">About Me</a>
       <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <!-- Main -->
   <main>
-    <!-- Left side -->
-    <div>
+    <!-- Left Column -->
+    <div class="fade-in">
       <section id="about" class="section-card">
         <h2>About Me</h2>
-        <p>
-          I am a motivated tech professional eager to apply my skills in real-world environments and contribute to innovative solutions.
-          I thrive when troubleshooting issues, guiding users, and making systems more reliable.
-        </p>
-        <p>
-          Adaptable, detail-oriented, and continuously learning, I combine technical expertise with effective communication to deliver reliable solutions.
-        </p>
-        <blockquote>
-          <em>"I combine hands-on technical support expertise with strong problem-solving skills and a passion for continuous learning."</em>
-        </blockquote>
+        <p>I am a motivated tech professional eager to apply my skills in real-world environments and contribute to innovative solutions. I thrive when troubleshooting issues, guiding users, and making systems more reliable.</p>
+        <p>Adaptable, detail-oriented, and continuously learning, I combine technical expertise with effective communication to deliver reliable solutions.</p>
+        <blockquote>"I combine hands-on technical support expertise with strong problem-solving skills and a passion for continuous learning."</blockquote>
       </section>
 
-      <section id="skills" class="section-card">
-        <h2>Technical Skills</h2>
-        <ul>
-          <li>System Support & Troubleshooting</li>
-          <li>Python & AI/ML Fundamentals</li>
-          <li>Cloud Platforms & Deployment</li>
-          <li>Version Control (Git, GitHub)</li>
-          <li>UI/UX Tools (Figma, Canva)</li>
-          <li>Customer Support & Communication</li>
-        </ul>
+      <section id="projects" class="section-card">
+        <h2>Projects</h2>
+        <div class="project-card">
+          <h3>💻 Portfolio Website</h3>
+          <p>A responsive personal portfolio showcasing my skills, projects, certificates, and resume.</p>
+          <a href="https://github.com/magubanebanele1234-create" class="btn" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>📊 AI & ML Explorations</h3>
+          <p>Experimenting with Python-based machine learning models and automation scripts to solve real-world problems.</p>
+        </div>
+        <div class="project-card">
+          <h3>🤖 AI Concept Chatbot</h3>
+          <p>An interactive AI educational chatbot that serves as a knowledge assistant for AI fundamentals.</p>
+          <a href="https://landbot.online/v3/H-3125566-R1MPTPVQT0GFXLWW/index.html" class="btn" target="_blank">Live Chatbot</a>
+          <a href="https://github.com/magubanebanele1234-create/ai-learning-assistant/blob/main/README.md" class="btn" target="_blank">Documentation</a>
+        </div>
       </section>
 
       <section id="resume" class="section-card">
         <h2>Resume</h2>
-        <p>Check out my latest resume below:</p>
-        <a href="https://drive.google.com/file/d/1SmdmY8axi0WTjCHBGm1uF-ez2Y8MSq-C/view?usp=sharing" target="_blank">
-          View My Resume
-        </a>
+        <p>You can view or download my full resume below:</p>
+        <a href="https://drive.google.com/file/d/1SmdmY8axi0WTjCHBGm1uF-ez2Y8MSq-C/view?usp=sharing" class="btn" target="_blank">Download Resume</a>
+      </section>
+    </div>
+
+    <!-- Right Column -->
+    <div class="fade-in">
+      <section id="certificates" class="section-card certificates">
+        <h2>My Certificates</h2>
+        <p>Click on the links to view each certificate</p>
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <h3>🏅 AI & Machine Learning</h3>
+            <ul>
+              <li><a href="https://drive.google.com/file/d/1dQ0htXzQrruFwlBuTocVfOfRv1P1Z31F/view?usp=sharing" target="_blank">AI For Everyone</a></li>
+              <li><a href="https://drive.google.com/file/d/1ojBvYq_ENIx_WKgiFSCG9Ig5E6tUppsE/view?usp=sharing" target="_blank">AI Essentials</a></li>
+              <li>Introduction to Generative AI</li>
+            </ul>
+          </div>
+
+          <div class="cert-card">
+            <h3>💬 Communication Skills</h3>
+            <ul>
+              <li><a href="https://drive.google.com/file/d/19VlH4Zc3oEXOnb3KmlQcklB7J2poZWG0/view?usp=sharing" target="_blank">Active Listening</a></li>
+              <li><a href="https://drive.google.com/file/d/1hFW7HromxJP3PnZ0oDG_Cf06tciN8Vbg/view?usp=sharing" target="_blank">Verbal Communications</a></li>
+              <li><a href="https://drive.google.com/file/d/1RAJSJjd9aGNMhdTYT7T0GmSJQOpC8B50/view?usp=sharing" target="_blank">Professional Emails</a></li>
+            </ul>
+          </div>
+
+          <div class="cert-card">
+            <h3>💻 Technical & IT Support</h3>
+            <ul>
+              <li>Introduction to IT Support</li>
+              <li>Technical Support Fundamentals</li>
+              <li>Troubleshooting & Debugging Techniques</li>
+            </ul>
+          </div>
+
+          <div class="cert-card">
+            <h3>🔬 AI Training & Research</h3>
+            <ul>
+              <li>AI Safety & Ethics</li>
+              <li>Research AI & Machine Learning</li>
+              <li>AI in Healthcare Applications</li>
+            </ul>
+          </div>
+
+          <div class="cert-card">
+            <h3>🌟 Additional Courses</h3>
+            <ul>
+              <li>Problem Solving</li>
+              <li>Creative Thinking</li>
+              <li>Effective Teamwork</li>
+            </ul>
+          </div>
+
+        </div>
+        <a href="certificates.html" class="btn" style="margin-top:20px;">View All Certificates</a>
       </section>
 
       <section id="contact" class="section-card">
         <h2>Contact</h2>
-        <p>📧 <a href="mailto:banele.magubane@capaciti.org.za">Email Me</a></p>
+        <p>📧 magubanebanele1234@gmail.com</p>
         <p>📱 +27 63 095 3203</p>
-        <p>🔗 <a href="https://www.linkedin.com/in/banele-magubane-a1b66a303">LinkedIn</a></p>
-        <p>💻 <a href="https://github.com/magubanebanele1234-create">GitHub</a></p>
-      </section>
-    </div>
-
-    <!-- Right side -->
-    <div>
-      <section id="projects" class="section-card">
-        <h2>Projects</h2>
-
-        <p>
-          <strong>AI Prototype</strong><br>
-          Design and prototype an AI solution addressing a specific challenge in your selected sector.<br>
-          <a href="https://garb-hut-44763277.figma.site/" target="_blank" class="project-link">Figma Design</a>
-          <a href="https://capeitinitiative-my.sharepoint.com/:b:/g/personal/siyabonga_mahlangu_capaciti_org_za/EWWCA8houyVGgL4Ti3mqXpwBsjoiOHEDkfrcyP2cnp262w?e=mXEP6u" target="_blank" class="project-link">Project Slides</a>
-          <a href="https://capeitinitiative-my.sharepoint.com/:v:/g/personal/lindiwe_mkuzangwe_capaciti_org_za/EYaXSOpxDIlNgu5DCAN6MEsB4_RD5Ht8z1qkE9GFK5Qa_A?e=ZSVAb7&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" target="_blank" class="project-link">Demo Video</a>
-        </p>
-
-        <p>
-          <strong>AI Concept Chatbot</strong><br>
-          An interactive AI educational chatbot that serves as a knowledge assistant for AI fundamentals.<br>
-          <a href="https://landbot.online/v3/H-3125566-R1MPTPVQT0GFXLWW/index.html" target="_blank" class="project-link">Live Chatbot</a>
-          <a href="https://github.com/magubanebanele1234-create/ai-learning-assistant/blob/main/README.md" target="_blank" class="project-link">Documentation</a>
-        </p>
-
-        <p>
-          <strong>End-to-End AI Solution (MediMindv2)</strong><br>
-          A complete AI application solving a real-world problem by integrating multiple AI technologies.<br>
-          <a href="https://medimindv2.netlify.app/" target="_blank" class="project-link">Deployment</a>
-          <a href="https://github.com/LindiMk/MediMindv2" target="_blank" class="project-link">GitHub</a>
-          <a href="https://capeitinitiative-my.sharepoint.com/:v:/g/personal/lindiwe_mkuzangwe_capaciti_org_za/EZu9LYDqPnRPnktKAWiWmZwBzYTY0jX58joiidLhv-EdEg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=hwpacw" target="_blank" class="project-link">Demo Video</a>
-          <a href="https://magenta-valentina-8.tiiny.site/" target="_blank" class="project-link">Documentation</a>
-        </p>
-      </section>
-
-      <section id="certificates" class="section-card certificates">
-        <h2>Certificates</h2>
-        <ul>
-          <li><a href="https://drive.google.com/file/d/1dQ0htXzQrruFwlBuTocVfOfRv1P1Z31F/view?usp=sharing" target="_blank">AI For Everyone</a></li>
-          <li><a href="https://drive.google.com/file/d/19VlH4Zc3oEXOnb3KmlQcklB7J2poZWG0/view?usp=sharing" target="_blank">Active Listening Enhancing Communication Skills</a></li>
-          <li><a href="https://drive.google.com/file/d/1hFW7HromxJP3PnZ0oDG_Cf06tciN8Vbg/view?usp=sharing" target="_blank">Verbal Communications and Presentation Skills</a></li>
-          <li><a href="https://drive.google.com/file/d/1RAJSJjd9aGNMhdTYT7T0GmSJQOpC8B50/view?usp=sharing" target="_blank">Write Professional Emails in English</a></li>
-          <li><a href="https://drive.google.com/file/d/1dQ0htXzQrruFwlBuTocVfOfRv1P1Z31F/view?usp=sharing" target="_blank">Introduction to Artificial Intelligence (AI)</a></li>
-          <li><a href="https://drive.google.com/file/d/1ojBvYq_ENIx_WKgiFSCG9Ig5E6tUppsE/view?usp=sharing" target="_blank">AI Essentials</a></li>
-          <li><a href="https://drive.google.com/file/d/1mcM-9Pq_cyBh9gYw4bXOhhfn_EI2cblw/view?usp=sharing" target="_blank">Psychology of the Self</a></li>
-          <li><a href="https://drive.google.com/file/d/1eRlIOzWWWOAriFLiT7sx-hQ9QcnOBN0m/view?usp=sharing" target="_blank">Emotional Intelligence</a></li>
-          <li><a href="https://drive.google.com/file/d/1m5kF57CYnefc70tUNsixBhNi45mHPd2n/view?usp=sharing" target="_blank">Work Smarter, Not Harder Time Management for Personal And Professional Productivity</a></li>
-          <li><a href="https://drive.google.com/file/d/1-8yOkH-w5_PEWNnRUJtfdalS4Ktvyj95/view?usp=sharing" target="_blank">Leading with Impact Team Dynamics, Strategy and Ethics</a></li>
-          <li><a href="https://drive.google.com/file/d/10xOonIjdatA1U1A7uhl_reR3fudAEY9Y/view?usp=sharing" target="_blank">Finding Your Professional Voice Confidence & Impact</a></li>
-          <li><a href="https://drive.google.com/file/d/1LulUcGyphT6NVKwqExh7XXy2Wgl3NgS0/view?usp=sharing" target="_blank">Financial Planning for Young Adults</a></li>
-          <li><a href="https://drive.google.com/file/d/1U3iwUWLqKN7-5UuelSrqyNlM7zP9HIvK/view?usp=sharing" target="_blank">Introduction to Generative AI</a></li>
-          <li><a href="https://drive.google.com/file/d/1WEwaL2o5cyH5CLrzhWvXXYVtww-c94tl/view?usp=sharing" target="_blank">Introduction to Personal Branding</a></li>
-          <li><a href="https://drive.google.com/file/d/1GotlY2bpY1mb0GqWK5eL_Pra-1THrGBH/view?usp=sharing" target="_blank">Developing Interpersonal Skills</a></li>
-          <li><a href="https://drive.google.com/file/d/1Fo-o_jPEKqCa2N3ssc60qEZQnR03sNh1/view?usp=sharing" target="_blank">Managing Conflicts with Cultural and Emotional</a></li>
-          <li><a href="https://drive.google.com/file/d/1BzYwvO9Y4sZvts__T2yJ7WasNU5qUFnP/view?usp=sharing" target="_blank">Trustworthy AI Managing Bias Ethics and Accountability</a></li>
-          <li><a href="https://drive.google.com/file/d/1A9ySWiv81VBGALmxJP9AWQrfkI5O_fKj/view?usp=sharing" target="_blank">Positive Psychology Resilience Skills</a></li>
-          <li><a href="https://drive.google.com/file/d/1m5K5L1dfKYWod73LmWylfwsQYndbN7VC/view?usp=sharing" target="_blank">Python for Data Science, AI & Development</a></li>
-          <li><a href="https://drive.google.com/file/d/1RB0Sd07dlGczMKq8PLjz4iyDX-lOkNcV/view?usp=sharing" target="_blank">Generative AI with Large Language Models</a></li>
-        </ul>
+        <p>🔗 <a href="https://www.linkedin.com/in/banele-magubane-a1b66a303" target="_blank">LinkedIn</a></p>
+        <p>💻 <a href="https://github.com/magubanebanele1234-create" target="_blank">GitHub</a></p>
       </section>
     </div>
   </main>
@@ -334,5 +216,6 @@
   <footer>
     <p>© 2025 Banele Magubane. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
