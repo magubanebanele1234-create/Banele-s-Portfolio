@@ -1,8 +1,8 @@
 # Banele Magubane's Portforlio For AI Projects
 
-*I am a motivated tech professional eager to apply my skills in real-world environments and contribute to innovative solutions. I thrive when troubleshooting issues, guiding users, and making systems more reliable.
+*I am a motivated tech professional eager to apply my skills in real-world environments and contribute to innovative solutions. I thrive when troubleshooting issues, guiding users, and making systems more reliable.*
 
-Adaptable, detail-oriented, and continuously learning, I combine technical expertise with effective communication to deliver reliable solutions.*
+Adaptable, detail-oriented, and continuously learning, I combine technical expertise with effective communication to deliver reliable solutions.
 ---
 
 ## Featured Projects
