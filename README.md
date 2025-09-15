@@ -24,8 +24,8 @@ An interactive AI educational chatbot designed to assist learners in understandi
 
 *Links:*
 
-* [Documentation](https://github.com/Moraka1952/ai-chatbot-project)
-* [Project Link](https://landbot.online/v3/H-3057095-7GBX9Q9QT2N2M2HE/index.html)
+* [Documentation](https://github.com/magubanebanele1234-create/ai-learning-assistant/blob/main/README.md)
+* [Project Link](https://landbot.online/v3/H-3125566-R1MPTPVQT0GFXLWW/index.html)
 
 ---
 
