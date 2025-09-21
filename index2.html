@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banele Magubane | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+    body { background: #0f0f1a; color: #e0e7ff; scroll-behavior: smooth; }
+
+    a { text-decoration:none; transition:0.3s; }
+    a:hover { opacity:0.85; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #6d28d9, #4c1d95);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px 100px;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    header h1 { font-size: 3.8rem; margin-bottom: 15px; background: linear-gradient(90deg, #facc15, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    header p { font-size: 1.3rem; margin-bottom: 30px; color: #e0e7ff; max-width: 650px; margin-left:auto; margin-right:auto; }
+    header .cta { display:inline-block; padding:15px 35px; background:#facc15; color:#4c1d95; font-weight:700; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+    header .cta:hover { background:#eab308; }
+
+    nav { margin-top:30px; }
+    nav a { margin:0 18px; color:#facc15; font-weight:600; font-size:1.05rem; cursor: pointer; }
+    nav a:hover { text-decoration:underline; }
+    nav a.active-tab { text-decoration:underline; }
+
+
+    /* Main Grid */
+    main { max-width:1400px; margin:auto; padding:50px 20px; display:block; }
+
+    /* Sections */
+    .section-card {
+      background: linear-gradient(145deg, #1a1a2e, #1e1b4b);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
+      margin-bottom: 30px;
+      display: none;
+    }
+    .section-card.active {
+      display: block;
+    }
+    .section-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.7); }
+
+    h2 { color:#a78bfa; margin-bottom:25px; font-size:2rem; border-bottom:3px solid #4c1d95; padding-bottom:10px; }
+
+    /* About */
+    #about p { margin-bottom:18px; line-height:1.7; }
+    blockquote { font-style:italic; border-left:5px solid #6d28d9; padding-left:20px; color:#9ca3af; margin-top:18px; }
+    .profile-pic {
+        display: block;
+        width: 150px; /* Small size */
+        height: 150px; /* Small size */
+        border-radius: 50%; /* Makes it a circle */
+        margin: 0 auto 25px; /* Center and add space below */
+        border: 4px solid #a78bfa; /* Border for presentation */
+        object-fit: cover; /* Ensures image covers the circle without distortion */
+    }
+
+    /* Projects */
+    .project-card { background:#2d2d44; border-radius:16px; padding:25px; margin-bottom:20px; transition: transform 0.3s, box-shadow 0.3s; }
+    .project-card:hover { transform: translateY(-6px); box-shadow:0 12px 28px rgba(108,43,255,0.5); }
+    .project-card h3 { color:#c084fc; margin-bottom:12px; }
+    .project-card p { margin-bottom:12px; }
+    .btn { display:inline-block; padding:10px 22px; margin-right:10px; background:#6d28d9; color:#fff; border-radius:10px; font-weight:600; font-size:0.95rem; box-shadow:0 6px 20px rgba(0,0,0,0.4); }
+    .btn:hover { background:#4c1d95; }
+
+    /* Certificates */
+    .certificates { text-align:center; }
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:25px; margin-top:25px; }
+    .cert-card {
+      background:linear-gradient(145deg, #1e1b4b, #2d2d44);
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    }
+    .cert-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 15px 40px rgba(108,43,255,0.6); border:2px solid #c084fc; }
+    .cert-card h3 { color:#c084fc; margin-bottom:15px; font-size:1.2rem; border-bottom:1px solid #6d28d9; padding-bottom:8px; }
+    .cert-card ul { list-style:disc; padding-left:20px; text-align:left; }
+    .cert-card li { margin-bottom:10px; }
+    .cert-card a { color:#e0e7ff; font-weight:500; }
+    .cert-card a:hover { color:#facc15; text-decoration:underline; }
+
+    /* Contact */
+    #contact p, #contact a { margin-bottom:12px; font-weight:500; }
+    #contact a { color:#c084fc; }
+    #contact a:hover { text-decoration:underline; }
+
+    /* Footer */
+    footer { 
+        background:#111827; 
+        color:#fff; 
+        text-align:center; 
+        padding:35px 20px; 
+        margin-top:50px; 
+        font-size:0.95rem; 
+    }
+    .slogan {
+        font-size: 1.1rem;
+        color: #c084fc;
+        margin-bottom: 10px;
+    }
+
+    /* Animations */
+    .fade-in { opacity:0; transform:translateY(20px); animation: fadeIn 1s forwards; }
+    .fade-in:nth-child(1){ animation-delay:0.2s; }
+    .fade-in:nth-child(2){ animation-delay:0.4s; }
+    .fade-in:nth-child(3){ animation-delay:0.6s; }
+    .fade-in:nth-child(4){ animation-delay:0.8s; }
+    @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Banele Magubane</h1>
+    <p>Tech Professional | Systems Support | Aspiring AI & Machine Learning Practitioner</p>
+    <a href="#contact" class="cta">Hire Me</a>
+    <nav>
+      <a onclick="showSection('about')">About Me</a>
+      <a onclick="showSection('projects')">Projects</a>
+      <a onclick="showSection('resume')">Resume</a>
+      <a onclick="showSection('certificates')">My Certificates</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="fade-in">
+      <section id="about" class="section-card active">
+        <h2>About Me</h2>
+        <img src="IMG_5251.jpg" alt="Banele Magubane's profile picture" class="profile-pic"> 
+        <p>I am a motivated tech professional eager to apply my skills in real-world environments and contribute to innovative solutions. I thrive when troubleshooting issues, guiding users, and making systems more reliable.</p>
+        <p>Adaptable, detail-oriented, and continuously learning, I combine technical expertise with effective communication to deliver reliable solutions.</p>
+        <blockquote>"I combine hands-on technical support expertise with strong problem-solving skills and a passion for continuous learning."</blockquote>
+      </section>
+
+      <section id="projects" class="section-card">
+        <h2>Projects</h2>
+        <div class="project-card">
+          <h3>💻End to End AI Solution </h3>
+          <p>A comprehensive AI application that solves a meaningful real-world problem by integrating multiple AI technologies into a cohesive solution.</p>
+          <a href="https://medimindv2.netlify.app/" class="btn" target="_blank">End-To-End AI Solution</a>
+          <a href="https://magenta-valentina-8.tiiny.site/" class="btn" target="_blank">Documentation</a>
+          <p>Click on End-To-End AI Solution to Access Link</p>
+        </div>
+        <div class="project-card">
+          <h3>📊 Custom Content Generator</h3>
+          <p> an AI solution addressing a specific challenge in Healthcare</p>
+          <a href="https://garb-hut-44763277.figma.site/" class="btn" target="_blank">Healthcare</a>
+          <a href="https://capeitinitiative-my.sharepoint.com/:b:/g/personal/siyabonga_mahlangu_capaciti_org_za/EWWCA8houyVGgL4Ti3mqXpwBsjoiOHEDkfrcyP2cnp262w?e=mXEP6u" class="btn" target="_blank">Documentation</a>
+          <p>Click on Healthcare to Access Link</p>
+        </div>
+        <div class="project-card">
+          <h3>🤖 AI Concept Chatbot</h3>
+          <p>An interactive AI educational chatbot that serves as a knowledge assistant for AI fundamentals.</p>
+          <a href="https://landbot.online/v3/H-3125566-R1MPTPVQT0GFXLWW/index.html" class="btn" target="_blank">Live Chatbot</a>
+          <a href="https://github.com/magubanebanele1234-create/ai-learning-assistant/blob/main/README.md" class="btn" target="_blank">Documentation</a>
+          <p>Click on Live Chatbot to Access Link</p>
+        </div>
+      </section>
+
+      <section id="resume" class="section-card">
+        <h2>Resume</h2>
+        <p>You can View and Download my full resume below:</p>
+        <a href="https://drive.google.com/file/d/1SmdmY8axi0WTjCHBGm1uF-ez2Y8MSq-C/view?usp=sharing" class="btn" target="_blank">View & Download Resume</a>
+      </section>
+
+      <section id="certificates" class="section-card certificates">
+        <h2>My Certificates</h2>
+        <p>Click on the links to view each certificate</p>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <h3>🏅 AI & Machine Learning</h3>
+            <ul>
+              <li><a href="https://drive.google.com/file/d/1dQ0htXzQrruFwlBuTocVfOfRv1P1Z31F/view?usp=sharing" target="_blank">AI For Everyone</a></li>
+              <li><a href="https://drive.google.com/file/d/1ojBvYq_ENIx_WKgiFSCG9Ig5E6tUppsE/view?usp=sharing" target="_blank">AI Essentials</a></li>
+              <li>Introduction to Generative AI</li>
+            </ul>
+          </div>
+          <div class="cert-card">
+            <h3>💬 Communication Skills</h3>
+            <ul>
+              <li><a href="https://drive.google.com/file/d/19VlH4Zc3oEXOnb3KmlQcklB7J2poZWG0/view?usp=sharing" target="_blank">Active Listening</a></li>
+              <li><a href="https://drive.google.com/file/d/1hFW7HromxJP3PnZ0oDG_Cf06tciN8Vbg/view?usp=sharing" target="_blank">Verbal Communications</a></li>
+              <li><a href="https://drive.google.com/file/d/1RAJSJjd9aGNMhdTYT7T0GmSJQOpC8B50/view?usp=sharing" target="_blank">Professional Emails</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-card">
+        <h2>Contact</h2>
+        <p>📧Gmail Account: magubanebanele1234@gmail.com</p>
+        <p>📱 Phone Number: +27 63 095 3203</p>
+        <p>🔗 <a href="https://www.linkedin.com/in/banele-magubane-a1b66a303" target="_blank">LinkedIn</a></p>
+        <p>💻 <a href="https://github.com/magubanebanele1234-create" target="_blank">GitHub</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p class="slogan">Innovating Solutions, Empowering Connections.</p>
+    <p>© 2025 Banele Magubane. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section-card');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the selected section
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.classList.add('active');
+      }
+
+      // Update active tab styling
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.classList.remove('active-tab');
+      });
+      const activeLink = document.querySelector(`nav a[onclick="showSection('${sectionId}')"]`);
+      if (activeLink) {
+        activeLink.classList.add('active-tab');
+      }
+    }
+    
+    // Show the "About Me" section by default on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('about');
+    });
+  </script>
+</body>
+</html>
